@@ -119,3 +119,20 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
                 
         topic: "JAVASCRIPT",
         }
+        
+        let totalTime = finishedAt.getTime() - startedAt.getTime();
+        let NewtotalTime = totalTime / 3600000;
+
+
+        // let endtime =  finishedAt;
+        // let starttime = startedAt;
+        // function totalTimeInMillisec (endtime, starttime) {
+        //     return (finishedAt.getTime() - startedAt.getTime())
+        // } 
+
+        // function timeConversion(millisec) {
+        //     let hours = (millisec / (1000 * 60 * 60)).toFixed(1);
+        //      if (hours < 24) {
+        //         return hours + " Hrs";
+        //     }
+        // }
