@@ -6,6 +6,8 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
 
         finishedAt: new Date("2021-01-10:13:00"),
 
+        totalTime:
+        
         tasksGiven: 10,
 
         tasksFinished: 6,
@@ -18,6 +20,8 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
     
         finishedAt: new Date("2021-01-11:15:00"),
     
+        totalTime:
+
         tasksGiven: 15,
     
         tasksFinished: 8,
@@ -30,6 +34,8 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
     
         finishedAt: new Date("2021-01-12:17:00"),
     
+        totalTime:
+
         tasksGiven: 5,
     
         tasksFinished: 3,
@@ -41,7 +47,9 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
         startedAt:new Date("2021-01-13:13:00"),
         
         finishedAt: new Date("2021-01-13:19:00"),
-        
+
+        totalTime:
+
         tasksGiven: 7,
         
         tasksFinished: 4,
@@ -54,6 +62,8 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
         
         finishedAt: new Date("2021-01-14:13:00"),
         
+        totalTime:
+
         tasksGiven: 25,
         
         tasksFinished: 12,
@@ -65,6 +75,8 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
         startedAt:new Date("2021-01-15:10:00"),
         
         finishedAt: new Date("2021-01-15:19:00"),
+        
+        totalTime:
         
         tasksGiven: 35,
         
@@ -78,6 +90,8 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
             
         finishedAt: new Date("2021-01-16:13:00"),
             
+        totalTime:
+
         tasksGiven: 4,
             
         tasksFinished: 4,
@@ -88,7 +102,9 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
         startedAt:new Date("2021-01-17:10:00"),
             
         finishedAt: new Date("2021-01-10:15:00"),
-            
+        
+        totalTime:
+
         tasksGiven: 17,
             
         tasksFinished: 15,            
@@ -100,6 +116,8 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
         startedAt:new Date("2021-01-10:10:00"),
 
         finishedAt: new Date("2021-01-10:14:00"),
+
+        totalTime:
             
         tasksGiven: 4,
             
@@ -112,16 +130,19 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
         startedAt:new Date("2021-01-20:10:00"),
                 
         finishedAt: new Date("2021-01-20:18:00"),
+
+        totalTime:
                 
         tasksGiven: 10,
                 
         tasksFinished: 6,
                 
         topic: "JAVASCRIPT",
+        
         }
         
         let totalTime = finishedAt.getTime() - startedAt.getTime();
-        let NewtotalTime = totalTime / 3600000;
+        let totalTime = totalTime / 3600000;
 
 
         // let endtime =  finishedAt;
