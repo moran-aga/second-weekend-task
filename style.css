@@ -1,9 +1,39 @@
 table, th, td {
    width: 100%; 
-    border: 1px solid black;
+    border: 3px solid white;
+    border-radius: 10px;
     border-collapse: collapse;
+    background-color: rgb(242, 239, 236);
+    table-layout:fixed;
+    text-align: center;
   }
 
   th, td {
-    padding: 2px;
+    padding: 5px;
+    background-color: rgba(242, 239, 236, 0.857);
+    font-size: larger;
+  }
+
+  .fast {
+      background-color: rgb(225, 139, 153);
+  }
+
+  .normal {
+      background-color:crimson
+  }
+
+  .slow {
+      background-color:rgb(151, 8, 36)
+  }
+
+  .half {
+    background-color: rgb(89, 204, 114);
+  }
+
+  .most {
+background-color: rgb(77, 182, 45);
+  }
+
+  .done {
+    background-color: rgba(5, 82, 42, 0.782);
   }

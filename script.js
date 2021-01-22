@@ -89,7 +89,7 @@
     let task8 = {
         startedAt:new Date("2021-01-17:10:00"),
             
-        finishedAt: new Date("2021-01-10:15:00"),
+        finishedAt: new Date("2021-01-17:15:00"),
 
         tasksGiven: 17,
             
@@ -128,9 +128,12 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
 
          for (let task of tasks){
              task["totalTime"] = (task.finishedAt - task.startedAt) / 3600000;
-             task["finishedPercent"] = Math.floor(((task.tasksFinished / task.tasksGiven) *100)) + "%";            
+             task["finishedPercent"] = Math.floor(((task.tasksFinished / task.tasksGiven) *100)) ;        
+             task.finishedAt=task.finishedAt.getHours();   
+             task.startedAt=task.startedAt.getHours();
          }
 
+        
          document.write('<table>');
          document.write('<tr><th> Started at </th> <th> finished at </th> <th> total time </th> <th> tasks given </th> <th> task finished </th> <th> topic </th> <th> finished percent </th> </tr>');
          
@@ -138,19 +141,36 @@ let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
             document.write(`<tr>`);
              document.write(`<td>${task.startedAt}</td>`);
              document.write(`<td>${task.finishedAt}</td>`);
-             document.write(`<td>${task.totalTime}</td>`);
+             document.write(`<td class = "${timeClass(task.totalTime)}">${task.totalTime}</td>`);
              document.write(`<td>${task.tasksGiven}</td>`);
              document.write(`<td>${task.tasksFinished}</td>`);
              document.write(`<td>${task.topic}</td>`);
-             document.write(`<td>${task.finishedPercent}</td>`);
-             document.write(`</tr>`);
-             
+             document.write(`<td class = "${percentClass(task.finishedPercent)}">${task.finishedPercent}%</td>`);
+             document.write(`</tr>`);     
          }
-           
-          
-             
-        
-        //  let headOfTable = ["Started At", "Finished At", "Total Time", "Tasks Given", "Tasks Finished", "Topic", "Finished Percent "]
-          
+
         document.write(`</table>`);
 
+        function timeClass (totalTime){
+            let className;  
+            if (totalTime <= 3 ){
+                className = "fast"; 
+            } else if (totalTime <= 6 ){
+                className = "normal";
+            } else { 
+                className = "slow";
+            }
+            return className;
+        }
+
+        function percentClass (finishedPercent){
+            let className;  
+            if (finishedPercent > 80 ){
+                className = "half"; 
+            } else if (finishedPercent > 50 ){
+                className = "most";
+            } else { 
+                className = "done";
+            }
+            return className;
+        }
