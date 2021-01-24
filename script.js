@@ -125,33 +125,54 @@
         
 let tasks = [task1,task2,task3,task4,task5,task6,task7,task8,task9,task10];
     
-
-         for (let task of tasks){
-             task["totalTime"] = (task.finishedAt - task.startedAt) / 3600000;
-             task["finishedPercent"] = Math.floor(((task.tasksFinished / task.tasksGiven) *100)) ;        
-             task.finishedAt=task.finishedAt.getHours();   
-             task.startedAt=task.startedAt.getHours();
-         }
-
+let headers = ["Started at", "finished at", "tasks given" , "tasks finished" , "topic" , "total time" , "finished percent"];
         
-         document.write('<table>');
-         document.write('<tr><th> Started at </th> <th> finished at </th> <th> total time </th> <th> tasks given </th> <th> task finished </th> <th> topic </th> <th> finished percent </th> </tr>');
-         
-         for ( let task of tasks) {
-            document.write(`<tr>`);
-             document.write(`<td>${task.startedAt}</td>`);
-             document.write(`<td>${task.finishedAt}</td>`);
-             document.write(`<td class = "${timeClass(task.totalTime)}">${task.totalTime}</td>`);
-             document.write(`<td>${task.tasksGiven}</td>`);
-             document.write(`<td>${task.tasksFinished}</td>`);
-             document.write(`<td>${task.topic}</td>`);
-             document.write(`<td class = "${percentClass(task.finishedPercent)}">${task.finishedPercent}%</td>`);
-             document.write(`</tr>`);     
-         }
+        task["totalTime"] = (task.finishedAt - task.startedAt) / 3600000;
+        task["finishedPercent"] = Math.floor(((task.tasksFinished / task.tasksGiven) *100)) ;        
+        task.finishedAt=task.finishedAt.getHours();   
+        task.startedAt=task.startedAt.getHours();
+    }
 
-        document.write(`</table>`);
+     
+let table = document.createElement("table");
+let tblBody = document.createElement("tbody");
+let headersRow = document.createElement("tr");
 
-        function timeClass (totalTime){
+  for ( let headerCell of headers) {
+    let header = document.createElement("th");
+    let textNode = document.createTextNode(headerCell);
+    header.appendChild(textNode);
+    headersRow.appendChild(header);
+  }
+
+    table.appendChild(headersRow);
+
+    document.body.appendChild(table);
+
+    for ( let task of tasks) {
+        let row = document.createElement("tr");
+  
+        for ( let property in task) {
+            let cell = document.createElement("td");
+            let cellText = document.createTextNode(task[property]);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+
+             if (property === "totalTime" ) {
+                 cell.classList.add(timeClass( task[property] ));
+             } else if (property === "finishedPercent" ) {
+                cell.classList.add(percentClass( task[property] ));
+        }
+    }
+
+    tblBody.appendChild(row);
+}
+ table.appendChild(tblBody);
+ document.body.appendChild(table);
+
+
+ function timeClass (totalTime){
+            console.log(totalTime);
             let className;  
             if (totalTime <= 3 ){
                 className = "fast"; 
